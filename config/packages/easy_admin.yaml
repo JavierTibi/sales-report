@@ -1,0 +1,41 @@
+easy_admin:
+  list:
+    actions:
+      - { name: 'new', label: 'New' }
+      # hides the action label and displays only the icon
+      - { name: 'edit', icon: 'pencil', label: false }
+      # hides the action label and displays only the icon
+      - { name: 'delete', icon: 'trash', label: false }
+      # hides the action label and displays only the icon
+      - { name: 'search', label: 'Search' }
+  new:
+    actions:
+    
+      # hides the action label and displays only the icon
+      - { name: 'list', label: 'Cancel' }
+  edit:
+    actions:
+      # hides the action label and displays only the icon
+      - { name: 'list', label: 'Cancel' }
+      - { name: 'delete', icon: 'trash', label: false }
+  disabled_actions:
+    actions:
+      # hides the action label and displays only the icon
+      - { name: 'cancel', label: 'Cancel' }
+      - { name: '-save', label: 'Save' }
+      - { id: 'modal-delete-button', icon: 'trash', label: false }
+
+  entities:
+      # List the entity class name you want to manage
+      Sales:
+        class: App\Entity\Sales
+        label: 'Sales'
+        list:
+          title: "Sales Reports"
+          filters: 
+            - { property: 'product', label: 'Products', type: 'App\Form\Filter\ProductFilterType' }
+        form:
+          title: "Sale"
+          fields:
+            - {property: 'product' }
+            - {property: 'amount', type: 'number'}
